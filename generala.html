@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Juegos | Generala</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="assets/css/generala.css" />
+        
+		<!--Favicon-->
+		<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
+		<link rel="manifest" href="assets/favicon_io/site.webmanifest">		
+	</head>
+	<body onload="cargarDatos() , comenzar();">
+        <header id="header">
+			<a class="logo" href="home.html"><img src="/images/back.png" width="20px"></a>
+		</header> 
+
+  
+
+
+
+
+
+
+
+
+        <img id="score" src="images/anotar.png">
+
+
+
+
+
+
+
+
+		<section id="main" class="wrapper">
+            
+         		<div class="inner">
+					<div class="content">	
+                        <section id="dados">
+                            <div id="contenedor">
+                                <div id="dado1"><img onclick="dados(1)" src="images/dados/0.jpg" alt="d1"></div>
+                                <div id="dado2"><img onclick="dados(2)" src="images/dados/0.jpg" alt="d2"></div>
+                                <div id="dado3"><img onclick="dados(3)" src="images/dados/0.jpg" alt="d3"></div>
+                                <div id="dado4"><img onclick="dados(4)" src="images/dados/0.jpg" alt="d4"></div>
+                                <div id="dado5"><img onclick="dados(5)" src="images/dados/0.jpg" alt="d5"></div>
+                            </div>
+                        </section>
+
+                        <section id="main2">
+                            <div class="message"></div>
+                            <div id="marcador">
+                                <p id="info"></p>
+                                <p id="player1" class="showNickP1">Jugador 1</p>
+                                <p id="player2" class="showNickP2">Jugador 2</p>
+                            </div>
+                        </section>
+
+                        <div id="ctnrBtns"> 
+                            <button onclick="tirarDados();">Tirar</button>
+                            <button onclick="resetGame();">Reiniciar</button>
+                        </div>
+					</div>
+                </div>
+			</section>
+
+		<!-- Scripts -->
+		<script src="assets/js/jquery-3.5.1.js"></script>
+		<script src="assets/js/main.js"></script>
+        <script src="assets/js/generala_script.js"></script>
+        <script src="assets/js/app.js"></script>
+	</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Juegos | Boston </title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+    <style>
+    </style>
+     <link rel="stylesheet" href="assets/css/boston.css">
+     <link rel="stylesheet" href="assets/css/main.css">
+
+     		<!--Favicon-->
+		<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
+		<link rel="manifest" href="assets/favicon_io/site.webmanifest">		
+</head>
+<body onload="cargarDatos() , comenzar();">
+    <header id="header">
+        <a class="logo" href="home.html"><img src="/images/back.png" width="20px"></a>
+    </header> 
+
+		<section id="main" class="wrapper">
+            <div class="inner">
+               <div class="content">
+               <h4 id="resultado"></h4>
+                <section id="dados">
+                       <div id="contenedor">
+                           <div id="dado1"><img onclick="dados(1)" src="images/dados/0.jpg" alt="d1"></div>
+                           <div id="dado2"><img onclick="dados(2)" src="images/dados/0.jpg" alt="d2"></div>
+                           <div id="dado3"><img onclick="dados(3)" src="images/dados/0.jpg" alt="d3"></div>
+                       </div>
+                   </section> 
+
+                <!-- Tabla de puntajes -->
+               <div id="tablaPuntajes">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>    <!--Aca se escribe el resultado del p2 -->
+                                <th id="player1" class="showNickP1">Jugador 1</th>
+                                <th id="player2" class="showNickP2">Jugador 2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> 
+    
+                <section id="canTiros"> 
+                        <p id="info"></p>
+                </section>
+
+                    <div id="ctnrBtns"> 
+                        <button id="botonTirar" onclick="tirarDados();">Tirar Dados</button>
+                        <button id="botonReset" onclick="resetGame();">Reiniciar</button>
+                    </div> 
+               </div>
+           </div>
+       </section>
+        
+    <script src="assets/js/boston.js"></script>
+    <script src="assets/js/jquery-3.5.1.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

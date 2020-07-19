@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap');
+
+/* ---------------      Botones + tiros     -------------------- */
+
+#canTiros {
+    width: 40%;
+    background-color: red;
+}
+
+#info {
+    color: yellow;
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#ctnrBtns{
+    width: 25%;
+    margin: 0 auto ;
+    background-color: rosybrown;
+}
+
+
+/* ---------------      Tabla + turnos     -------------------- */
+table {
+    /* top | right | bottom | left */
+    width: 30%;
+    padding: 1%;
+    float: right;
+    color: #000;
+    background-color: #f7f7f7;
+}
+
+th,
+td {
+    border: 0.8px solid #000;
+    padding: 0.4%;
+}
+
+table thead tr th,
+th:last-of-type {
+    text-transform: uppercase;
+    font-size: 1em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+table thead tr th:nth-of-type(2) {
+    width: 30%;
+    /* background-color: yellowgreen; */
+    color: #000;
+}
+
+table thead tr th:nth-of-type(3) {
+    width: 30%;
+    /* background-color: cornflowerblue; */
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+}
+
+table tbody tr td {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.noDisp {
+    display: none;
+}
+
+#marcador {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#player1,
+#player2 {
+    text-transform: uppercase;
+    text-align: center;
+    width: 50%;
+    display: block;
+    float: left;
+    padding: 1%;
+    border: 1px solid white;
+    font-size: 1em;
+}
+
+#player1.enJuego {
+    background-color: yellowgreen;
+}
+
+#player2.enJuego {
+    background-color: cornflowerblue;
+}
+
+/* ---------------      Dados     -------------------- */
+
+#contenedor {
+    width: 60%;
+    background-color: burlywood;
+    display: inline-block;
+}
+
+#dado1,#dado2,#dado3 {
+    float: left;
+    width: 20%;
+    margin: 2%;
+    padding: 1%;
+}
+
+img {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.seleccionado {
+    opacity: 0.5;
+    border-style: solid;
+    border-width: 3px;
+    border-color: greenyellow;
+}

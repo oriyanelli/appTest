@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap');
+
+#turnosJugadores{
+    margin: 0 auto;
+    width: 100%;
+}
+ul li{ 
+    display:inline-block; 
+    color: #252a34;
+    width:60%; 
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    height: 100px;
+    width: 100px;
+}
+
+ul li:first-of-type, ul li:last-of-type{ 
+    width: 40%;
+    text-transform: capitalize;
+}
+
+ul li:first-of-type.turno1{ 
+    background-color: #FF2E63; 
+    color: #252a34; 
+    font-size: 1em;
+    padding: 0.8%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+ul li:last-of-type.turno2{ 
+    background-color:#09D9D6; 
+    color: #252a34; 
+    font-size: 1em;
+    padding: 1%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#resultado{ 
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #000; 
+    text-align: center;
+    font-size: 1.5em; 
+    padding: 0.2em;
+}
+
+.estCruz{
+    color: #FF2E63;
+    text-align: center;
+    vertical-align: middle;}
+
+.estCirc{
+    color: #09D9D6;
+    text-align: center;
+    vertical-align: middle;}
+
+td {
+    width: 33%; 
+    height: 33%;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5em;
+    border: 2px solid #000;
+    text-transform: uppercase;
+    margin: 0 auto;
+    padding: 0;
+    border-spacing: 0px;
+    border-collapse: separate;
+    margin: 30px auto;
+}
+ 
+#tableroT{
+    max-width: 420px;
+    max-height: 420px;
+    width: 100vw; 
+    height: 100vw;
+    margin: auto;
+    width: 85vw;  
+    height: 85vw;
+}
+
+  #tableroT tr:first-child td {
+    border-top: none
+  }
+  
+  #tableroT tr:last-child td {
+    border-bottom: none
+  }
+  
+  #tableroT tr td:first-child {
+    border-left: none;
+  }
+  
+  #tableroT tr td:last-child {
+    border-right: none;
+  }
+  
+
+#BotonReset {
+    color:  #252a34;
+
+    margin-top: 5%;
+    font-size: 1em;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+}
+
+  .cell {
+    font-size: 3.4em;
+    font-size: 16vmin;  /* Responsive font size! Awesome! */
+    height: 100%;  /* Fill the container (td) */
+    width: 100%;
+  }
+
+  @media screen and (max-width: 480px) {
+    #tableroT {
+    width: 100%;
+  }   
+}     
