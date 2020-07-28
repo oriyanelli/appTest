@@ -4,6 +4,7 @@
     margin: 0 auto;
     width: 100%;
 }
+
 ul li{ 
     display:inline-block; 
     color: #252a34;
@@ -12,18 +13,22 @@ ul li{
     text-align: center;
     height: 100px;
     width: 100px;
+    vertical-align: middle;
 }
 
 ul li:first-of-type, ul li:last-of-type{ 
     width: 40%;
+    height: 1%;
     text-transform: capitalize;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
 }
 
 ul li:first-of-type.turno1{ 
     background-color: #FF2E63; 
     color: #252a34; 
     font-size: 1em;
-    padding: 0.8%;
+    padding: 0.5%;
     text-align: center;
     vertical-align: middle;
 }
@@ -32,17 +37,17 @@ ul li:last-of-type.turno2{
     background-color:#09D9D6; 
     color: #252a34; 
     font-size: 1em;
-    padding: 1%;
+    padding: 0.5%;
     text-align: center;
     vertical-align: middle;
 }
 
 #resultado{ 
     font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
+    font-weight: 900;
     color: #000; 
     text-align: center;
-    font-size: 1.5em; 
+    font-size: 1.2em; 
     padding: 0.2em;
 }
 
@@ -71,6 +76,14 @@ td {
     margin: 30px auto;
 }
  
+.Nodisponible{
+  pointer-events: none;
+}
+
+.disponible{
+  pointer-events: auto;
+}
+
 #tableroT{
     max-width: 420px;
     max-height: 420px;
@@ -79,9 +92,11 @@ td {
     margin: auto;
     width: 85vw;  
     height: 85vw;
+    margin-top: 5%;
+    position: sticky;
 }
 
-  #tableroT tr:first-child td {
+#tableroT tr:first-child td {
     border-top: none
   }
   
@@ -97,26 +112,23 @@ td {
     border-right: none;
   }
   
-
-#BotonReset {
-    color:  #252a34;
-
-    margin-top: 5%;
-    font-size: 1em;
-    font-weight: 700;
-    font-family: 'Montserrat', sans-serif;
-    text-decoration: none;
-}
-
   .cell {
     font-size: 3.4em;
     font-size: 16vmin;  /* Responsive font size! Awesome! */
     height: 100%;  /* Fill the container (td) */
     width: 100%;
   }
+  
+#BotonReset {
+  margin-top: 5%;
+  font-size: 1em;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+}
 
   @media screen and (max-width: 480px) {
     #tableroT {
-    width: 100%;
+    width: 90%;
   }   
 }     

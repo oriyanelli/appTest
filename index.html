@@ -13,46 +13,12 @@
 </head>
 <body>
 
-<h2>¡Hola! Para jugar por primera vez deberás registrarte</h2>
+  <h2>¡Hola! Para jugar por primera vez deberás registrarte</h2>
 
-<button id="but1" onclick="document.getElementById('id01').style.display='block'">Registrarse</button>
-<button id="but2" onclick="javascript:homeButton(this)" style="width:auto;" >Jugar</button>
-
-<div id="id01" class="modal">
+  <button id="but1" onclick="registro();">Registrarse</button>
+  <button id="but2" onclick="javascript:homeButton(this)" style="width:auto;" >Jugar</button>
   
-  <form class="modal-content animate" method="POST" action="">
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="images/avatar.png" onclick="asignarFoto(2), capturePhoto();" class="avatar" alt="foto1">
-    </div>
-
-    <div class="container">
-      <label for="uname"><b>Nombre jugador 1 </b></label>
-      <input type="text" placeholder="Nombre" name="uname" required>
-
-      <label for="psw"><b>Usuario jugador 1 </b></label>
-      <input type="text" placeholder="Usuario" name="psw" required>
-    </div>
-
-    <div class="imgcontainer">
-      <img src="images/avatar.png" onclick="asignarFoto(2), capturePhoto();" class="avatar" alt="foto2">
-    </div>
-    <div class="container">
-      <label for="uname"><b>Nombre jugador 2 </b></label>
-      <input type="text" placeholder="Nombre" name="uname" required>
-
-      <label for="psw"><b>Usuario jugador 2 </b></label>
-      <input type="text" placeholder="Usuario" name="psw" required>
-    </div>
-
-    <button onclick="guardarDatos();" type="guardar">Registrarse</button>
-
-  </form>
-</div>
-
-<script src="assets/js/main.js"></script>
-<script src="assets/js/app.js"></script>
-<script src="assets/js/jquery-3.5.1.js"></script>
-
-</body>
-</html>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/jquery-3.5.1.js"></script>
+  </body>
+  </html>

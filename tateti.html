@@ -15,9 +15,9 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
 		<link rel="manifest" href="assets/favicon_io/site.webmanifest">
 	</head>
-	<body class="is-preload">
+<body onload="cargarDatos(), mostrarDatos();">
 		<header id="header">
-			<a class="logo" href="home.html"><img src="/images/back.png" width="30px"></a>
+			<a class="logo" href="home.html"><img src="images/back.png" width="20px" id="imgback"></a>
 		</header> 
 
 		<!-- Main -->
@@ -26,13 +26,13 @@
 					<div class="content">
 						<section id="turnosJugadores">
 							<ul>
-								 <li class="#turnoJugador1">
-									 <p id="j1">jugador 1</p>
-									</li>
-								 <li class="#turnoJugador2" style="float:right">
-									 <p id="j2" >jugador 2</p>
-									</li>
-							</ul>
+								<li class="#turnoJugador1">
+									<p id="player1" class="showNickP1"></p>
+								   </li>
+								<li class="#turnoJugador2" style="float:right">
+									<p id="player2" class="showNickP2"></p>
+								   </li>
+						   </ul>
 					 	</section>
 
 					 <h4 id="resultado"></h4>

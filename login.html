@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Juegos | Registro </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/css/style-login.css"  type="text/css" rel=stylesheet>
+
+    <!--Favicon-->
+		<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
+		<link rel="manifest" href="assets/favicon_io/site.webmanifest">
+</head>
+<body>
+
+ <form class="modal-content animate" method="POST" action="">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="images/avatar.png" onclick="asignarFoto(2), capturePhoto();" class="avatar" alt="foto1">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Nombre jugador 1 </b></label>
+      <input id="name1" name="name1" placeholder="Nombre" type="text"> 
+
+      <label for="psw"><b>Usuario jugador 1 </b></label>
+      <input id="user1" name="user1" placeholder="Usuario" type="text">
+    </div>
+
+    <div class="imgcontainer">
+      <img src="images/avatar.png" onclick="asignarFoto(2), capturePhoto();" class="avatar" alt="foto2">
+    </div>
+    <div class="container">
+      <label for="uname"><b>Nombre jugador 2 </b></label>
+      <input id="name2" name="name2" placeholder="Nombre" type="text">
+
+      <label for="psw"><b>Usuario jugador 2 </b></label>
+      <input id="user2" name="user2" placeholder="Usuario" type="text">
+    </div>
+
+    <button onclick="guardarDatos(); validarDatos();" type="button">Registrarse</button>
+  </form> 
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/jquery-3.5.1.js"></script>
+</body>
+</html>

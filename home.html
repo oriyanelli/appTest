@@ -15,26 +15,62 @@
 		<link rel="manifest" href="assets/favicon_io/site.webmanifest">
 	</head>
 	
-	<body onload="cargarDatos();">
+	<body onload="cargarDatos(), mostrarDatos();">
 
 		<!-- Header -->
 			<header id="header">
-				<a class="logoP" href="index.html"><img src="/images/logo.png" width="50px" style="margin: 2em 1em 0 1em ;"></a>
+				<a class="logoP" href="index.html"><img src="images/logo.png" width="50px" style="margin: 2em 1em 0 1em ;"></a>
+				<a href="#popUp" id="openPopUp"><i class="fas fa-users"></i></a>
 			</header>
 
+		<!-- POP UP -->
+		<aside id="popUp" class="popup3">
+			<div class="popUpContainer">
+			<header>
+				<a href="#!" class="closePopUp">X</a>
+
+			</header>
+			<article>
+				<h4 class="TitIndic">Puntajes generales</h4>
+					<div id="scores">
+						<ul>
+							<img id="list_photo1" src="" alt="photo_player1" height="50px">
+							<!-- <li class="indicaciones2" id="list_nombre1"></li> -->
+							<li class="indicaciones2" id="list_nick1"></li>
+							<li class="indicaciones2" id="list_TTTpts1"></li>
+							<li class="indicaciones2" id="list_Generalapts1"></li>
+							<li class="indicaciones2" id="list_Bostonpts1"></li>
+						</ul>
+						<hr id="separadorPts">
+						 <ul>
+							<img id="list_photo2" src="" alt="photo_player2" height="50px">
+							<!-- <li class="indicaciones2" id="list_nombre2"></li> -->
+							<li class="indicaciones2" id="list_nick2"></li>
+							<li class="indicaciones2" id="list_TTTpts2"></li>
+							<li class="indicaciones2" id="list_Generalapts2"></li>
+							<li class="indicaciones2" id="list_Bostonpts2"></li>
+						</ul>
+					</div>
+					<button id="resetAll" onclick="resetAllScores();"> Resetear puntajes </button>
+				</div>
+			</article>
+		</div>        
+		<a href="#!" class="closePopUpOutSide"></a>    
+		</aside>
 			<section class="wrapper">
 				<div class="inner">
 					<header class="special">
 						<h2>JUEGOS DISPONIBLES</h2>
 					</header>
-					
 					<section class="parent">
 							<div class="thing one">
-									<p id="userNickP1" class="showNickP1"> Jugador1 : 0 </p>
+								<p id="player1" class="indicaciones3"></p>
 						</div>
 						<div class="thing two">
-							<p id="userNickP2" class="showNickP2"> Jugador2 : 0 </p>
-				</div>
+							<ul>
+								<p id="player2" class="indicaciones3"></p>
+							</ul>
+						</div>
 					</section>
 
 					<div class="highlights">

@@ -1,37 +1,35 @@
 var tablero = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 var jugador = 1;
-var puntajeP1 = 0;
-var puntajeP2 = 0;
 
-// ** Asigna las letras para cada jugador, recorre la tabla para ver quien cliquea primero **
-function jugadores(){
- for(var i=0; i<9; i++){
- 	if(tablero[i] == 1) {
-		document.getElementById("pos"+i).innerHTML='<span class="estCruz">X</span>';  
-	}
-     if(tablero[i] == 2) {
-    	document.getElementById("pos"+i).innerHTML='<span class="estCirc">O</span>'; }
- }
-}
+    // ** Asigna las letras para cada jugador, recorre la tabla para ver quien cliquea primero **
+    function jugadores(){
+    for(var i=0; i<9; i++){
+        if(tablero[i] == 1) {
+            document.getElementById("pos"+i).innerHTML='<span class="estCruz">X</span>';  
+        }
+        if(tablero[i] == 2) {
+            document.getElementById("pos"+i).innerHTML='<span class="estCirc">O</span>'; }
+    }
+    }
 
-//  ** Asigna los turnos, y les agrega o remueve la clase segun a quien le toque ** 
-function posTablero(celda){
-if (tablero[celda]===0) {
- if (jugador==1){
- 	tablero[celda]=1;
- 		jugador=2;
-     		$("ul li:first-of-type").addClass("turno1");
-	 		$("ul li:last-of-type").removeClass("turno2");
- } else {
- 	tablero[celda]=2;
- 		jugador=1; 
-    		$("ul li:last-of-type").addClass("turno2");
-        	$("ul li:first-of-type").removeClass("turno1");
- }
-} else {
-	alert("Oops, prueba de vuelta!");
-} 
-   jugadores();
+    //  ** Asigna los turnos, y les agrega o remueve la clase segun a quien le toque ** 
+    function posTablero(celda){
+    if (tablero[celda]===0) {
+    if (jugador==1){
+        tablero[celda]=1;
+            jugador=2;
+                $("ul li:first-of-type").addClass("turno1");
+                $("ul li:last-of-type").removeClass("turno2");
+    } else {
+        tablero[celda]=2;
+            jugador=1; 
+                $("ul li:last-of-type").addClass("turno2");
+                $("ul li:first-of-type").removeClass("turno1");
+    }
+    } else {
+        alert("Oops, prueba de vuelta!");
+    } 
+    jugadores();
 
 
 //    ** Define los ganadores depende del caso que toque ** 
@@ -40,32 +38,30 @@ var definicion = ganador();
   case 0:
    break;
   case 1:
-        // $("#resultado").text(Store.load("usuario1") + " ha ganado!");
-         $("#resultado").text("¡El jugador 1 ha ganado!");
+         $("#resultado").text(Store.load("user1") + " ha ganado!");
          $("ul li:first-of-type").addClass("turno1");
-         $("ul li:last-of-type").removeClass("turno2");  
+         $("ul li:last-of-type").removeClass("turno2"); 
          $("#tableroT").css("background-color", "#eaeaea");
-         Store.save("historialP1", Store.load("historialP1") + 1);
-       
+         $("#tableroT").addClass("Nodisponible"); 
+         Store.save("ptsTateti1", Store.load("ptsTateti1") + 50);
    break;
   case 2:
-       //  $("#resultado").text(Store.load("usuario2") + " ha ganado!");
-         $("#resultado").text("¡El jugador 2 ha ganado!");
+         $("#resultado").text(Store.load("user2") + " ha ganado!");
          $("ul li:first-of-type").removeClass("turno1");
          $("ul li:last-of-type").addClass("turno2");  
-         Store.save("historialP2", Store.load("historialP2") + 1);
          $("#tableroT").css("background-color", "#eaeaea");
+         $("#tableroT").addClass("Nodisponible"); 
+         Store.save("ptsTateti2", Store.load("ptsTateti2") + 50);
   
    break;
   case 3:
          $("#resultado").text("¡Empate!");
          $("#tableroT").css("background-color", "#fcfcfc");
-		 $("tableroT").disable=false;
          $("ul li:first-of-type").removeClass("turno1");
          $("ul li:last-of-type").removeClass("turno2");  
+         $("#tableroT").addClass("Nodisponible"); 
    break; 
      }
- //    $("#tableroT").removeClass("disponible"); --> Probar esto
 }
 
     // ** Define el ganador segun los espacios y combinaciones **
@@ -105,13 +101,14 @@ var definicion = ganador();
             return 3;
     }}
 
-    function reset(){
+function reset(){
     tablero = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     jugador = 1;
     $("table tr td").html(""); 
-    $("#j1").removeClass("turnoJugador1");
-    $("#j2").removeClass("turnoJugador2");
+    $("#tableroT").css("background-color", "");
+    $("#tableroT").addClass("disponible");
+    $("#turnoJugador1").removeClass("turno1");
+    $("#turnoJugador2").removeClass("turno2");
     $("#resultado").html(" ");  
-    $("#tableroT").css("background-color", "#FFFFF");
     cargarDatos();
     }

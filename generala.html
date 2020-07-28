@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="assets/css/main.css" />
         <link rel="stylesheet" href="assets/css/generala.css" />
         
 		<!--Favicon-->
@@ -15,33 +15,125 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
 		<link rel="manifest" href="assets/favicon_io/site.webmanifest">		
 	</head>
-	<body onload="cargarDatos() , comenzar();">
+	<body onload="cargarDatos(), comenzar(), mostrarDatos();">
         <header id="header">
-			<a class="logo" href="home.html"><img src="/images/back.png" width="20px"></a>
-		</header> 
-
-  
-
-
-
-
-
-
-
-
-        <img id="score" src="images/anotar.png">
-
-
-
-
-
-
-
-
-		<section id="main" class="wrapper">
-            
+            <a class="logo" href="home.html"><img src="images/back.png" width="20px" id="imgback"></a>
+            <a href="#popUp" id="openPopUp">?</a>
+        </header> 
+        
+            <!-- Reglas del juego -->
+            <aside id="popUp" class="popup2">
+                <div class="popUpContainer">
+                <header>
+                    <a href="#!" class="closePopUp">X</a>
+                </header>
+                <article>
+                    <h4 class="TitIndic">Jugadas permitidas</h4>
+                    <p class="indicaciones"><strong>Jugada de 1,2, 3, 4, 5 y 6:</strong> Se marca la suma de todos los dados de valor.</p>
+                    <p class="indicaciones"><strong>Escalera:</strong> Los dados deberán quedar del 1 al 5 o del 2 al 6. El nº 1 se puede colocar 20 
+                        detrás del 6. </p>
+                    <p class="indicaciones"><strong>Full:</strong> Una pareja y un trío de dados iguales.</p>
+                    <p class="indicaciones"><strong>Poker:</strong> Cuatro dados iguales y uno distinto.</p>
+                    <p class="indicaciones"><strong>Generala:</strong> Cinco dados iguales.</p>
+                    <p class="indicaciones"><strong>Doble Generala:</strong> Dentro del mismo juego sale generala nuevamente.</p>
+                </article>
+            </div>        
+            <a href="#!" class="closePopUpOutSide"></a>    
+            </aside>
+    
+        <section id="main" class="wrapper">
          		<div class="inner">
 					<div class="content">	
+
+                        <a id="puntajesGenerala"><img src="images/anotar.png" id="imgAnotar"></a> 
+                         <!-- Tabla de puntos -->
+                        <div id="tablaPuntajes" class="noDisp">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Jugada</th>
+                                        <th class="showNickP1" id="player1"></th>
+                                        <th class="showNickP2" id="player2"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><button disabled class="btnPuntaje" onclick="juego('1');">1</button></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button disabled class="btnPuntaje" onclick="juego('2');">2</button></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button disabled class="btnPuntaje" onclick="juego('3');">3</button></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button disabled class="btnPuntaje" onclick="juego('4');">4</button></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button disabled class="btnPuntaje" onclick="juego('5');">5</button></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button disabled class="btnPuntaje" onclick="juego('6');">6</button></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button disabled class="btnPuntaje" onclick="juego('escalera');">Escalera</button></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button disabled class="btnPuntaje" onclick="juego('full');">Full</button></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button disabled class="btnPuntaje" onclick="juego('poker');">Poker</button></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button disabled class="btnPuntaje" onclick="juego('generala');">Generala</button></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button disabled class="btnPuntaje" onclick="juego('dobleGenerala');">Generala Doble</button></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Total</th>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+       
+                 <!-- Turnos -->
+                 <section id="turnosJugadores">
+                    <ul>
+                        <li class="#turnoJugador1">
+                            <p id="player1_generala" class="showNickP1"></p>
+                           </li>
+                        <li class="#turnoJugador2" style="float:right">
+                            <p id="player2_generala" class="showNickP2"></p>
+                           </li>
+                   </ul>
+                 </section>
+                
+                    <!-- Contenedor dados -->
                         <section id="dados">
                             <div id="contenedor">
                                 <div id="dado1"><img onclick="dados(1)" src="images/dados/0.jpg" alt="d1"></div>
@@ -52,19 +144,20 @@
                             </div>
                         </section>
 
-                        <section id="main2">
+                    <!-- Marcador de tiros y resultado -->
+                        <section id="main">
                             <div class="message"></div>
                             <div id="marcador">
                                 <p id="info"></p>
-                                <p id="player1" class="showNickP1">Jugador 1</p>
-                                <p id="player2" class="showNickP2">Jugador 2</p>
                             </div>
                         </section>
 
+                    <!-- Botones -->
                         <div id="ctnrBtns"> 
-                            <button onclick="tirarDados();">Tirar</button>
-                            <button onclick="resetGame();">Reiniciar</button>
-                        </div>
+                            <button onclick="tirarDados();" id="butTirar">Tirar</button>
+                            <button onclick="resetGame();" id="butReset" >Reiniciar</button>
+                        </div> 
+
 					</div>
                 </div>
 			</section>

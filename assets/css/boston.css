@@ -1,120 +1,218 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&display=swap');
 
-/* ---------------      Botones + tiros     -------------------- */
-
+@media screen and (max-width: 1920px){
+/* ---------------      Botones + tiros + resultado   -------------------- */
 #canTiros {
-    width: 40%;
-    background-color: red;
+    width: 25%;
+    margin: 0 auto;
+    font-weight: 200;
 }
 
 #info {
-    color: yellow;
+    text-align: center;
+    color: #252a34;
     font-size: 1.2em;
     font-family: 'Montserrat', sans-serif;
 }
 
 #ctnrBtns{
-    width: 25%;
-    margin: 0 auto ;
-    background-color: rosybrown;
-}
-
-
-/* ---------------      Tabla + turnos     -------------------- */
-table {
-    /* top | right | bottom | left */
-    width: 30%;
-    padding: 1%;
-    float: right;
-    color: #000;
-    background-color: #f7f7f7;
-}
-
-th,
-td {
-    border: 0.8px solid #000;
-    padding: 0.4%;
-}
-
-table thead tr th,
-th:last-of-type {
-    text-transform: uppercase;
-    font-size: 1em;
-    font-family: 'Montserrat', sans-serif;
-}
-
-table thead tr th:nth-of-type(2) {
-    width: 30%;
-    /* background-color: yellowgreen; */
-    color: #000;
-}
-
-table thead tr th:nth-of-type(3) {
-    width: 30%;
-    /* background-color: cornflowerblue; */
-    color: #000;
-    font-family: 'Montserrat', sans-serif;
-}
-
-table tbody tr td {
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.noDisp {
-    display: none;
-}
-
-#marcador {
     width: 50%;
     margin: 0 auto;
     text-align: center;
-    font-family: 'Montserrat', sans-serif;
 }
 
-#player1,
-#player2 {
-    text-transform: uppercase;
+#resultado{
+    margin-top: 0 auto;
     text-align: center;
-    width: 50%;
-    display: block;
-    float: left;
-    padding: 1%;
-    border: 1px solid white;
-    font-size: 1em;
+}
+
+#botonTirar{
+    margin: 1%;
+}
+/* ---------------      Turnos     -------------------- */
+#turnosJugadores{
+    margin: 0 auto;
+    width: 100%;
+}
+
+ul li{ 
+    display:inline-block; 
+    color: #252a34;
+    width:60%; 
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    height: 100px;
+    width: 100px;
+    vertical-align: middle;
+}
+
+ul li:first-of-type, ul li:last-of-type{ 
+    width: 40%;
+    height: 10%;
+    text-transform: capitalize;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
 }
 
 #player1.enJuego {
-    background-color: yellowgreen;
+    background-color: #FF2E63;
 }
 
 #player2.enJuego {
-    background-color: cornflowerblue;
+    background-color: #09D9D6;
+}
+
+/* ---------------      Puntos     -------------------- */
+#Tpuntajes{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+    width: 90%;
+    margin: 0 auto;
+}
+
+#puntajeJ1,#puntajeJ2 {
+    color: #252a34;
+    font-size: 1em;
+    width: 40%;
+    text-align: center;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#puntajeJ1{
+    float: left;
+    margin-right: -4%;
+}
+
+#puntajeJ2{
+    float: right;
+    margin-right: -4%;
 }
 
 /* ---------------      Dados     -------------------- */
-
 #contenedor {
     width: 60%;
-    background-color: burlywood;
-    display: inline-block;
+    display: flex;
+    margin-top: 8%;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
 }
 
 #dado1,#dado2,#dado3 {
     float: left;
     width: 20%;
     margin: 2%;
-    padding: 1%;
 }
 
-img {
+.imgDados {
     width: 100%;
     margin: 0 auto;
 }
 
 .seleccionado {
-    opacity: 0.5;
-    border-style: solid;
-    border-width: 3px;
-    border-color: greenyellow;
+    opacity: 0.2;
 }
+
+}
+
+@media only screen and (max-width: 800px){
+  #contenedor{
+    width: 100%;
+    margin-top: 10%;
+  }
+
+  #dado1,#dado2,#dado3 {
+    width:25%;
+}
+
+#ctnrBtns{
+    position: relative;
+    width: 100%;
+}
+
+button{
+    width: 45%;
+    margin: 1%;
+    text-align: center;
+}
+
+#turnosJugadores{
+    margin: 0 auto;
+    width: 100%;
+}
+
+#player1,
+#player2 {
+    text-align: center;
+    width: 90%;
+    display: block;
+    float: left;
+    padding: 1%;
+    font-size: 1em;
+    border: none;
+}
+
+ul li{ 
+    display:inline-block; 
+    color: #252a34;
+    width:60%; 
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    height: 100px;
+    width: 100px;
+    vertical-align: middle;
+}
+
+ul li:first-of-type, ul li:last-of-type{ 
+    width: 40%;
+    height: 10%;
+    text-transform: capitalize;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+ul li:first-of-type.turno1{ 
+    background-color: #FF2E63; 
+    color: #252a34; 
+    font-size: 1em;
+    padding: 0.5%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+ul li:last-of-type.turno2{ 
+    background-color:#09D9D6; 
+    color: #252a34; 
+    font-size: 1em;
+    padding: 0.5%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#Tpuntajes{
+    background-color: lightgreen;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+    width: 90%;
+    margin: 0 auto;
+}
+
+#puntajeJ1,#puntajeJ2 {
+    color: #252a34;
+    font-size: 1em;
+    width: 40%;
+    text-align: center;
+    margin-top: -10%;
+}
+
+#puntajeJ1{
+    float: right;
+ 
+}
+#puntajeJ2{
+    float: left;
+}
+
+}
+

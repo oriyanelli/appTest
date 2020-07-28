@@ -3,7 +3,8 @@
 <head>
     <title>Juegos | Boston </title>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    
     <style>
     </style>
      <link rel="stylesheet" href="assets/css/boston.css">
@@ -13,56 +14,76 @@
 		<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
 		<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
 		<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
-		<link rel="manifest" href="assets/favicon_io/site.webmanifest">		
-</head>
-<body onload="cargarDatos() , comenzar();">
-    <header id="header">
-        <a class="logo" href="home.html"><img src="/images/back.png" width="20px"></a>
-    </header> 
+        <link rel="manifest" href="assets/favicon_io/site.webmanifest">		      
 
+</head>
+<body onload="cargarDatos(), comenzar(), mostrarDatos();">
+    <header id="header">
+        <a class="logo" href="home.html"><img src="images/back.png" width="20px" id="imgback"></a>
+        <a href="#popUp" id="openPopUp">?</a>
+    </header> 
+               
+    <!-- POP UP -->
+    <aside id="popUp" class="popup">
+        <div class="popUpContainer">
+           <header>
+            <a href="#!" class="closePopUp">X</a>
+
+           </header>
+          <article>
+            <h4 class="TitIndic">¿Cómo jugar?</h4>
+            <p class="indicaciones">El primer participante tira los tres dados. Separa el de mayor puntaje y vuelve a arrojar los otros dos. 
+               Nuevamente separa el número más alto y tira el dado restante, solo se puede jugar un dado por vez.
+               </p>
+           <h4 class="TitIndic">Objetivo</h4>
+           <p class="indicaciones"> Alcanzar los 100 puntos.</p>
+          </article>
+       </div>        
+       <a href="#!" class="closePopUpOutSide"></a>    
+    </aside>
 		<section id="main" class="wrapper">
             <div class="inner">
                <div class="content">
-               <h4 id="resultado"></h4>
+              
+               <!-- Tabla de puntajes -->
+               <section id="turnosJugadores">
+                <ul>
+                    <li class="#turnoJugador1">
+                        <p id="player1" class="showNickP1"></p>
+                       </li>
+                    <li class="#turnoJugador2" style="float:right">
+                        <p id="player2" class="showNickP2"></p>
+                       </li>
+               </ul>
+             </section>
+             
+            <div id="Tpuntajes">
+                <span id="puntajeJ1"></span>
+                <span id="puntajeJ2"></span>
+            </div>  
+        
                 <section id="dados">
                        <div id="contenedor">
-                           <div id="dado1"><img onclick="dados(1)" src="images/dados/0.jpg" alt="d1"></div>
-                           <div id="dado2"><img onclick="dados(2)" src="images/dados/0.jpg" alt="d2"></div>
-                           <div id="dado3"><img onclick="dados(3)" src="images/dados/0.jpg" alt="d3"></div>
+                           <div id="dado1"><img onclick="dados(1)" src="images/dados/0.jpg" alt="d1" class="imgDados"></div>
+                           <div id="dado2"><img onclick="dados(2)" src="images/dados/0.jpg" alt="d2" class="imgDados"></div>
+                           <div id="dado3"><img onclick="dados(3)" src="images/dados/0.jpg" alt="d3" class="imgDados"></div>
                        </div>
                    </section> 
 
-                <!-- Tabla de puntajes -->
-               <div id="tablaPuntajes">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th></th>    <!--Aca se escribe el resultado del p2 -->
-                                <th id="player1" class="showNickP1">Jugador 1</th>
-                                <th id="player2" class="showNickP2">Jugador 2</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div> 
-    
+                <h4 id="resultado"></h4>
                 <section id="canTiros"> 
                         <p id="info"></p>
                 </section>
 
                     <div id="ctnrBtns"> 
-                        <button id="botonTirar" onclick="tirarDados();">Tirar Dados</button>
+                        <button onclick="comenzar();">Comenzar</button>
+                        <button id="botonTirar" onclick="tirarDados();">Tirar</button>
                         <button id="botonReset" onclick="resetGame();">Reiniciar</button>
                     </div> 
                </div>
            </div>
        </section>
-        
+
     <script src="assets/js/boston.js"></script>
     <script src="assets/js/jquery-3.5.1.js"></script>
     <script src="assets/js/app.js"></script>

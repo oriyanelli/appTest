@@ -1,11 +1,10 @@
 var cantDados = 3;
-var jugador = 1; //  N° del jugador
+var jugador = 1; 
 var tirada = []; // Array donde se guardan los valores de los dados que van saliendo.
 var puntajeP1 = 0;
 var puntajeP2 = 0;
 var cantTiros = 0; //  Cantidad de veces que puede arrojar los dados
 var anotoJugada = false;
-
 
 var cualtirada = 3;
 var turno = 0;
@@ -16,7 +15,7 @@ var puntaje = {
 }
 var finish = 0;
 
-//  Comenzar el juego
+//  HABILITAR BOTONES
 function comenzar() {
     tirada = [];
     puntajeP1 = 0;
@@ -28,31 +27,14 @@ function comenzar() {
     $("#botonReset").attr("disabled", false);
     $("#player2").removeClass("enJuego");
     $("#player1").addClass("enJuego");
-    //Recorro toda la tabla
-    // for (i = 1; i <= 11; i++) {
-    //     for (j = 2; j <= 3; j++) {
-    //         $("table tbody tr:nth-of-type(" + i + ") td:nth-of-type(" + j + ")").empty();
-    //     }
-    // }
-    // $("table tbody tr:nth-of-type(12) td:nth-of-type(1)").empty();
-    // $("table tbody tr:nth-of-type(12) td:nth-of-type(2)").empty();
     $("#botonTirar").attr("disabled", false);
-    $("#info").html("Tiro: " + cantTiros);
+    $("#info").html(" "); 
+    $("#resultado").html(" ");
+    $("#puntajeJ1").html(" ");
+    $("#puntajeJ2").html(" ");
 }
 
-//  Selección de dados
-function dados(a) {
-    if ($("#dado" + a + " img").attr("src") != "images/dados/0.jpg") {
-        if ($("#dado" + a).hasClass("seleccionado")) {
-            $("#dado" + a).removeClass("seleccionado");
-        } else {
-            $("#dado" + a).addClass("seleccionado");
-        }
-    }
-};
-
-
-//  Tirar dados y asignar imágenes
+//  TIRAR DADOS Y ASIGNAR LAS IMAGENES
 function tirarDados() {
     for (var i = 0; i < cantDados; i++) {
         if (!$("#dado" + (i + 1)).hasClass("seleccionado")) {
@@ -63,14 +45,31 @@ function tirarDados() {
     }
     $(".btnPuntaje").prop("disabled", false);
     cantTiros++;
-    //checkJugada();
-    // Sumar los cantTiros
+  //  console.log("Cantidad de tiros: " + cantTiros);
     if (cantTiros == 4) {
         $("#botonTirar").prop("disabled", true);
         cambiarTurno();
     }
     $("#info").html("Tiro: " + cantTiros);
 };
+
+//  SELECCION DE LOS DADOS
+function dados(a) {
+    if ($("#dado" + a + " img").attr("src") != "images/dados/0.jpg") {
+        if ($("#dado" + a).hasClass("seleccionado")) {
+            $("#dado" + a).removeClass("seleccionado");
+        } else {
+            $("#dado" + a).addClass("seleccionado");
+        }
+    }
+};
+
+function deseleccionarDados() {
+    for (var i = 0; i < cantDados; i++) {
+        $("#dado" + (i + 1) + " img").attr("src", "images/dados/0.jpg");
+        $("#dado" + (i + 1)).removeClass("seleccionado");
+    }
+}
 
 function cambiarTurno() {
     if (finish == 0) {
@@ -92,58 +91,46 @@ function cambiarTurno() {
     }
 }
 
-//  Deselección de dados
-function deseleccionarDados() {
-    for (var i = 0; i < cantDados; i++) {
-        $("#dado" + (i + 1) + " img").attr("src", "images/dados/0.jpg");
-        $("#dado" + (i + 1)).removeClass("seleccionado");
-    }
-}
-
-//  Ganador
-function quienGana(){
-        if (puntajeP1 >= 100) {
-            document.getElementById("message").innerText = "gana p1";
-            //  $("#resultado").text(Store.load("usuario1") + " ha ganado!");
-            $("#botonTirar").attr("disabled", true);
-            finish = 1;
-        }
-        else if (puntajeP2 >= 100) {
-            //  $("#resultado").text(Store.load("usuario2") + " ha ganado!");
-            document.getElementById("message").innerText = "gana p2";
-            $("#botonTirar").attr("disabled", true);
-            finish = 1;
-        }
-    }
-
-function resetGame() {
-        if (confirm("¿Desea reiniciar el juego?")) {
-            comenzar();
-        }
-    }
-
-    function anotarJugada(){
+function anotarJugada(){
         valor = 0
         for (var i = 0; i < 3; i++) {
            valor = valor + tirada[i];
         }
         if(jugador == 1){
             puntajeP1 = puntajeP1 + valor;
-            $("table tbody tr:last-of-type td:nth-of-type(1)").html(puntajeP1); 
+           // $("table tbody tr:last-of-type td:nth-of-type(1)").html(puntajeP1); 
+           $("#puntajeJ1").html(puntajeP1); 
         } else {
             puntajeP2 = puntajeP2 + valor;
-            $("table tbody tr:last-of-type td:nth-of-type(2)").html(puntajeP2);            
+           // $("table tbody tr:last-of-type td:nth-of-type(2)").html(puntajeP2);  
+           $("#puntajeJ2").html(puntajeP2);           
         }
         quienGana();
-    }
+}
 
-    function playRoll (jugador){ 
+function quienGana(){
+    if (puntajeP1 >= 100) {
+        $("#resultado").text(nickP1 + " ha ganado!");
+        Store.save("ptsBoston1", Store.load("ptsBoston1") + 100);
+        $("#botonTirar").attr("disabled", true);
+        finish = 1;
+    }
+    else if (puntajeP2 >= 100) {
+        $("#resultado").text(nickP2 + " ha ganado!");
+        Store.save("ptsBoston2", Store.load("ptsBoston2") + 100);
+        $("#botonTirar").attr("disabled", true);
+        finish = 1;
+    }
+}
+
+function playRoll (jugador){
+        
         while (finish == 0){
             rolls = [];//dados en el tiro 
             for (var i = 0; i < tirada; i++) //tirar los 3 tiros se guardan en rolls y cuantos dados tira segun los tiros
                     {
                         rolls.push(Math.floor(Math.random() * 6) + 1);
-                    //    document.write(rolls[i] +"<br>");
+                   //     document.write(rolls[i] +"<br>");
                         quienGana();
                     }
                     
@@ -153,11 +140,11 @@ function resetGame() {
                         if (rolls[i] > mayor)
                         {
                             mayor = rolls[i];
-                        //    document.write("el mayor es " + mayor +"<br>");
+                           // document.write("el mayor es " + mayor +"<br>");
                         }    
                     }
                     puntaje[jugador] = puntaje[jugador] + mayor; //sumar el mayor al puntaje del jugador
-                    document.write("puntaje de " + jugador + "es: " + puntaje[jugador] +"<br>");
+                  //  document.write("puntaje de " + jugador + "es: " + puntaje[jugador] +"<br>");
                     if (tirada <= 0 ){ //chequea si ya termino el turno y resetea
                         tirada = 3;
                         if (jugador == 'p1') playRoll('p2');
@@ -167,6 +154,15 @@ function resetGame() {
                         tirada--;
                         playRoll(jugador);
                     }
-
+                    
+                
                 }
-            }
+}
+
+function resetGame() {
+    if (confirm("¿Desea reiniciar el juego?")) {
+        comenzar();
+        $("#player1").removeClass("enJuego");
+
+    }
+}

@@ -25,13 +25,13 @@ function comenzar() {
     jugador = 1;
     cantTiros = 0;
     deseleccionarDados();
-    shakeEvent.start();
+ //   shakeEvent.start();
     cargarDatos();
     /* $(".showWinsP1").html("Partidas ganadas: " + Store.load("historialP1"));
      $(".showWinsP2").html("Partidas ganadas: " + Store.load("historialP2"));*/
     $("#botonReset").attr("disabled", false);
-    $("#player2").removeClass("enJuego");
-    $("#player1").addClass("enJuego");
+    $("#player2_generala").removeClass("enJuego");
+    $("#player1_generala").addClass("enJuego");
     //Recorro toda la tabla
     for (i = 1; i <= 11; i++) {
         for (j = 2; j <= 3; j++) {
@@ -51,18 +51,16 @@ function cambiarTurno() {
         cantTiros = 0;
         $("#info").html("Tiro: " + cantTiros);
         deseleccionarDados();
-        shakeEvent.start();
+   //     shakeEvent.start();
         $("#botonTirar").prop("disabled", false);
         if (jugador === 1) {
-            $("#player1").removeClass("enJuego");
-            $("#player2").addClass("enJuego");
+            $("#player1_generala").removeClass("enJuego");
+            $("#player2_generala").addClass("enJuego");
             jugador = 2;
-            $("audio")[2].play();
         } else {
-            $("#player2").removeClass("enJuego");
-            $("#player1").addClass("enJuego");
+            $("#player2_generala").removeClass("enJuego");
+            $("#player1_generala").addClass("enJuego");
             jugador = 1;
-            $("audio")[2].play();
         }
         $(".btnPuntaje").prop("disabled", true);
     }
@@ -94,9 +92,7 @@ function tirarDados() {
     //    stopShake();
     }
     $("#info").html("Tiro: " + cantTiros);
-   
 };
-
 
 //  SELECCION DE LOS DADOS
 function dados(a) {
@@ -127,13 +123,12 @@ function checkWinner() {
             $("#botonTirar").attr("disabled", true);
             $("#player1").addClass("enJuego");
             $("#player2").removeClass("enJuego");
-            Store.save("historialP1", Store.load("historialP1") + 1);
         } else if (puntajeP2 > puntajeP1) {
             $("#marcador #info").html("El ganador es " + Store.load("usuario2"));
             $("#botonTirar").attr("disabled", true);
             $("#player1").removeClass("enJuego");
             $("#player2").addClass("enJuego");
-            Store.save("historialP2", Store.load("historialP2") + 1);
+          
         } else {
             $("#marcador #info").html("Empate");
             $("#botonTirar").attr("disabled", true);
@@ -141,7 +136,6 @@ function checkWinner() {
             $("#player2").removeClass("enJuego");
         }
         return true;
-        $("audio")[1].play();
     }
     return false;
 }
@@ -292,16 +286,13 @@ function hizoJuego(juego) {
 }
 
 // MENU DE PUNTAJES DESPLEGABLE TABLA PUNTAJES
-$(document).ready(function () {
-    $("#tablaPuntajes").addClass("noDisp");
+ $(document).ready(function () {
+     $("#tablaPuntajes").addClass("noDisp");
     $("#puntajesGenerala").click(function () {
-        $("#tablaPuntajes").toggle();
+         $("#tablaPuntajes").toggle();
     });
 });
 
-
-// // FUNCION PARA DETECTAR CAMBIOS EN EL ACELEROMETRO
-// //create a new instance of shake.js.
 // var shakeEvent = new Shake({
 //     threshold: 10
 // });
@@ -315,3 +306,4 @@ $(document).ready(function () {
 // function stopShake() {
 //     shakeEvent.stop();
 // }
+
